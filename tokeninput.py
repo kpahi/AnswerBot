@@ -16,7 +16,7 @@ s = ("Hello there")
 
 checknoun = ['NN','NNP','NNS']
 #group the separated nouns (two)
-nouns = ['Nepal']
+nouns = []
 
 #tokenize  and tag the input sentence 
 def tokenization(sentence):

@@ -5,6 +5,7 @@ sRespons = " "
 
 from tokeninput import *
 from wikisearch import *
+from scraping import *
 
 while 1:
 	print("> ", end = '')
@@ -15,7 +16,9 @@ while 1:
 	print(nouns)
 
 #get the wiki link for corresponding nouns
-	link=getlink(nouns)
+	link = getlink(nouns)
+	
+	
 	content = getdes(link)
 	nouns.clear()
 
