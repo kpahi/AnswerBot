@@ -41,6 +41,9 @@ def grouping(tagged):
 				noun = tagged[i][0] + " " + tagged[i+1][0]
 				nouns.append(noun)
 			elif(tagged[i][1] in checknoun ):
+				check = nltk.word_tokenize(str(nouns))
+				if(tagged[i][0] in check):
+					continue
 				nouns.append(tagged[i][0])
 			else:
 				continue
