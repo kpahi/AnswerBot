@@ -3,6 +3,8 @@
 
 import nltk
 
+#from wikisearch import *
+
 #stemming
 from nltk.stem.porter import PorterStemmer
 from nltk.stem.lancaster import LancasterStemmer
@@ -14,7 +16,7 @@ s = ("Hello there")
 
 checknoun = ['NN','NNP','NNS']
 #group the separated nouns (two)
-nouns = []
+nouns = ['Nepal']
 
 #tokenize  and tag the input sentence 
 def tokenization(sentence):
@@ -36,7 +38,7 @@ def grouping(tagged):
 
 
 		#check if two noun are together
-		if( i != length-1):
+		if( i < length-1):
 			if( tag in checknoun and tagged[i+1][1] in checknoun ):
 				noun = tagged[i][0] + " " + tagged[i+1][0]
 				nouns.append(noun)
@@ -56,6 +58,4 @@ n = grouping(t)
 print(t)
 print(n)
 '''
-
-
 

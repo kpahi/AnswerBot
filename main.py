@@ -4,7 +4,7 @@ sInput = " "
 sRespons = " "
 
 from tokeninput import *
-
+from wikisearch import *
 
 while 1:
 	print("> ", end = '')
@@ -13,5 +13,10 @@ while 1:
 	print(alltokens)
 	nouns = grouping(alltokens)
 	print(nouns)
-	nouns = ""
+
+#get the wiki link for corresponding nouns
+	link=getlink(nouns)
+	content = getdes(link)
+	nouns.clear()
+
 
