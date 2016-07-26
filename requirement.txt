@@ -1,0 +1,6 @@
+pip install wikipedia
+pip install bs4
+pip install urllib3
+pip install nltk
+pip install beautifulsoup4
+
