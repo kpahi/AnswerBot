@@ -2,12 +2,14 @@ from knowl import *
 #from keywords import *
 import math
 from operator import itemgetter
+import nltk
 keys = []
 resp_list = []
 
 #input = "you can to"
 #input = " i am bored"
-input = "What do you like. "
+input = "can you think like human "
+
 #input = "you can speak."
 count = 1.
 
@@ -19,6 +21,7 @@ temp_dict = {}
 nd =1 
 
 input = tokenize(input)
+#input = nltk.word_tokenize(input)
 
 for k in know.keys():
 	keys.append(k)
@@ -26,11 +29,19 @@ for k in know.keys():
 #get all the responds
 for r in know.values():
 	resp_list.append(r)
-
 #resp_list becomes the list of lists
 
+'''
+for k in keys:
+	print(k)
+	print("\n")
+	print(nltk.word_tokenize(k))
+#print(keys)
+
+'''
 #find the tf
 for k in keys:
+	#key_tokens = nltk.word_tokenize(k)
 	for i in input:
 		if i in tokenize(k):
 			count = count +1.
@@ -38,8 +49,9 @@ for k in keys:
 			#temp_dict[k] = count
 			#temp_dict[k] = 1 + math.log(count / len(k))
 		#temp_dict[k] = 1+ math.log(len(k) / count)
-		#temp_dict[k] = count
-
+		temp_dict[k] = count
+	count = 1.
+'''
 		#find the idf
 		if(count != 1.):
 			nd +=1
@@ -47,11 +59,7 @@ for k in keys:
 		tf_idf = count * idf
 
 		temp_dict[k] = tf_idf
-
-
-
-		
-	count = 1.
+'''
 #sort by the values of weight
 temp_dict = sorted(temp_dict.items(), key=itemgetter(1))
 
@@ -60,3 +68,4 @@ temp_dict = sorted(temp_dict.items(), key=itemgetter(1))
 
 
 print(temp_dict)
+
