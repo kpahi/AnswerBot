@@ -6,13 +6,19 @@ sRespons = " "
 from tokeninput import *
 from wikisearch import *
 from scraping import *
+from selectresp imoprt *
 
 while 1:
 	print("> ", end = '')
 	sInput = input()
 	alltokens = tokenization(sInput)
 	print(alltokens)
-	nouns = grouping(alltokens)
+
+'''Here comes the wiki
+	alltagged = tagging(alltokens)	
+	print(alltagged)
+
+	nouns = grouping(alltagged)
 	print(nouns)
 
 #get the wiki link for corresponding nouns
@@ -22,4 +28,4 @@ while 1:
 	content = getdes(link)
 	nouns.clear()
 
-
+'''

@@ -2,7 +2,7 @@
 #import _pydecimal
 
 import nltk
-
+from nltk.tokenize import RegexpTokenizer
 #from wikisearch import *
 
 #stemming
@@ -18,10 +18,17 @@ checknoun = ['NN','NNP','NNS']
 #group the separated nouns (two)
 nouns = []
 
+#To remove punctuations
+tokenizer = RegexpTokenizer(r'\w+')
+
 #tokenize  and tag the input sentence 
 def tokenization(sentence):
-	text = nltk.word_tokenize(sentence)
-	tagged = nltk.pos_tag(text)
+	#text = nltk.word_tokenize(sentence)
+	text = tokenizer.tokenize(sentence)	
+	return	text
+
+def tagging(totag):
+	tagged = nltk.pos_tag(totag)
 	return tagged
 
 def grouping(tagged):
