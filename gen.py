@@ -73,7 +73,7 @@ def search_keys(inps):
 	ten_resp =[]
 #get last five response
 	def top_ten_resp():
-		print("Best 10 responses are:\n")
+		print("Best 10 keywords matched  are:\n")
 		for i in range(1,11):
 			#print(i)
 			ten_resp.append(temp_list[-i])
