@@ -3,6 +3,7 @@ from knowl import *
 import math
 from operator import itemgetter
 
+#this for git only
 
 tokenize = lambda doc: doc.upper().split(" ")
 def search_keys(inps):
