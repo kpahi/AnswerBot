@@ -51,3 +51,7 @@ if __name__ == '__main__':
 		#print(content)
 		del sInput
 		del search
+		del response_list
+		del best_resp
+		#r = search.top_ten_resp()
+		#print(response_list)

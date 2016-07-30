@@ -13,17 +13,18 @@ tokenize = lambda doc: doc.upper().split(" ")
 
 class SelectResponse(object):
 	keys = []
-	resp_list = []
 	temp_dict = {}
 	temp_resp = []
 	ten_resp = []
 	temp_list = []
 	number_of_keys = 0
+	count = 0
 
 	def __init__(self, inps):
 		self.inputs = inps
 		#tokenize the inputs
 		self.inputs = tokenize(self.inputs)
+		print(self.inputs)
 		
 #get all the keys
 	def get_all_keys(self):
@@ -36,6 +37,7 @@ class SelectResponse(object):
 
 #get weight of all the KEYWORDS
 	def find_weight(self):
+		self.temp_dict = {}
 		all_keys = self.get_all_keys()
 		for k in all_keys:
 			count = 1.
@@ -46,17 +48,27 @@ class SelectResponse(object):
 
 				self.temp_dict[k] = int(count)
 
-
+		del all_keys
+	#	print(self.temp_dict)
 		return self.temp_dict
 	
 #get top 10 matched keywords:
 	def top_ten_resp(self):
 		dictionary = self.find_weight()
-		temp_list = sorted(dictionary.items(), key=itemgetter(1))
+		self.temp_list = sorted(dictionary.items(), key=itemgetter(1))
+		self.ten_resp = []
 		print("Best 10 matched keywords are:\n")
 		for i in range(1,5):
-			self.ten_resp.append(temp_list[-i])
+			self.ten_resp.append(self.temp_list[-i])
+		del dictionary
+		del self.temp_list
 		return self.ten_resp
+	
+#delete everything
+	def __del__(self):
+		del self.inputs
+		del self.temp_dict
+		del self.ten_resp
 
 
 

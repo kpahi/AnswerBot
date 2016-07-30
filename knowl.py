@@ -630,5 +630,6 @@ know={
     "A CAMERA": [
         "WHAT KIND OF CAMERA?",
         "IS IT A DIGITAL CAMERA?"
-    ]
+    ],
+    "COLOR SKY": ["BLUE"]
 }
