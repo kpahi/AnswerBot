@@ -9,6 +9,10 @@ from wikisearch import *
 from scraping import *
 from response import resfunctions
 
+#from nltk.corpus import stopwords
+
+stopwords = ['what','where','why','who','when','how','a','is','an','the','are','was','were']
+
 import generator
 
 #static working
@@ -21,6 +25,12 @@ if __name__ == '__main__':
 		print("> ", end = '')
 		sInput = input()
 		sInput += str(' ')
+		#Remove stop words
+#can be done with nltk->stopwords
+		#sInput = ' '.join([word for word in sInput.split() if word not in stopwords.words("english")])
+		for word in stopwords:
+			if word in sInput.split():
+				sInput = sInput.replace(word, "")
 
 
 #search in the static keywords list
