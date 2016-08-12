@@ -40,13 +40,14 @@ class SelectResponse(object):
 		self.temp_dict = {}
 		all_keys = self.get_all_keys()
 		for k in all_keys:
+			#count = 1/len(k)
 			count = 1.
 			for i in self.inputs:
 				if i in tokenize(k):
-					count = count + 1.0
+					count += count
 					continue
 
-				self.temp_dict[k] = int(count)
+				self.temp_dict[k] = (count)
 
 		del all_keys
 	#	print(self.temp_dict)

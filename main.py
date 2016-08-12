@@ -11,7 +11,7 @@ from response import resfunctions
 
 #from nltk.corpus import stopwords
 
-stopwords = ['what','where','why','who','when','how','a','is','an','the','are','was','were']
+stopwords = ['what','where','why','who','when','how','a','is','an','the','are','was','were','you','am']
 
 import generator
 
