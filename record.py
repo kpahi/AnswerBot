@@ -19,7 +19,7 @@ tokenize = lambda doc: doc.lower().split(" ")
 
 
 name_entity = 'user'
-d = {}
+d = {'he':'Kritish'}
 
 class Profile(object):
 	def __init__(self, inps):
@@ -46,6 +46,7 @@ class Profile(object):
 
 #check if any prep function
 def checkPrep(t):
+#here t is the list of tupple after pos_tag
 #make a list of the tupple to mutate
 	l = list(t)
 	for i in range(0,len(t)):
@@ -57,6 +58,7 @@ def checkPrep(t):
 		l[i] = t[i][0]
 
 	#new list omiting pronoun is in l
+	print(l)
 
 
 

@@ -14,11 +14,11 @@ from bs4 import BeautifulSoup
 target = open('paragraph.txt','w')
 
 def getdes(l):
-    print(l)
+    #print(l)
     try:
         page = urllib.request.urlopen(l)
         soup = BeautifulSoup(page,"lxml")
-        all_paragraph = soup.find_all('p',limit = 5)
+        all_paragraph = soup.find_all('p',limit = 55555)
         for par in all_paragraph:
             paragraph = (par.getText()).encode('utf-8')
             print(paragraph)
@@ -27,12 +27,12 @@ def getdes(l):
     except URLError as e:
         print('Reason ', e.reason)
 def regetdes(l):
-    print(l)
+    #print(l)
     sentences_list=[]
     try:
         page = urllib.request.urlopen(l)
         soup = BeautifulSoup(page, "lxml")
-        all_paragraph = soup.find_all('p', limit=5)
+        all_paragraph = soup.find_all('p', limit=3)
         for par in all_paragraph:
             paragraph = (par.getText()).encode('utf-8')
             #print(paragraph)
