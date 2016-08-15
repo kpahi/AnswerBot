@@ -21,21 +21,22 @@ def getdes(l):
         all_paragraph = soup.find_all('p',limit = 55555)
         for par in all_paragraph:
             paragraph = (par.getText()).encode('utf-8')
-            print(paragraph)
+            # print(paragraph)
             target.write(str(paragraph))
             target.write("\n")
     except URLError as e:
         print('Reason ', e.reason)
+
 def regetdes(l):
     #print(l)
     sentences_list=[]
     try:
         page = urllib.request.urlopen(l)
         soup = BeautifulSoup(page, "lxml")
-        all_paragraph = soup.find_all('p', limit=3)
+        all_paragraph = soup.find_all('p', limit=55555)
         for par in all_paragraph:
             paragraph = (par.getText()).encode('utf-8')
-            #print(paragraph)
+            print(paragraph)
             decodedpara =paragraph.decode('utf-8')
             sentences = nltk.sent_tokenize(decodedpara)
             sentences_list.append(sentences)
