@@ -71,6 +71,14 @@ if __name__ == '__main__':
                 else:
                     reqper = NER.gethighcountner(get_input_nouns, person)
                     print(start_output,verbused,reqper)
+            elif 'where' in input_tokens:
+                place = NER.getplacelist(nerlist)
+                print(place)
+                if len(place) ==1:
+                    print(start_output,"at","".join(place))
+                else:
+                    reqplace = NER.gethighcountner(get_input_nouns,place)
+                    print(start_output,"at",reqplace)
 
 
 
@@ -100,12 +108,6 @@ if __name__ == '__main__':
         if count ==1:
             break
 
-def wiki_search(sInput):
-    # get the wiki link for corresponding nouns
-    link = googleit(sInput)
-    content = regetdes(link)
-    # content = getdes(link)
-    print(content)
 
 # del sInput
 # del search

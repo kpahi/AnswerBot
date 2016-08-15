@@ -32,6 +32,14 @@ def getNER(content):
             if data not in nerlist:
                 nerlist.append(data)
     return nerlist
+def getplacelist(content):
+    places=[]
+    for data in content:
+        if data[0] =='GPE':
+            places.append(data[1])
+    return places
+
+
 def getpersonlist(content):
     persons=[]
     for data in content:
@@ -44,7 +52,7 @@ def gethighcountner(nouns,wholist):
     personlist=[]
     wordslist=[]
 
-    file = open('test.txt','r')
+    file = open('paragraph.txt','r')
     fread = file.read()
     sentences = nltk.sent_tokenize(fread)
     # sentences = nltk.sent_tokenize(stringlist)
