@@ -32,7 +32,7 @@ def static_search(sInput):
 def getnouns(content):
 	noun_list=[]
 	for data in content:
-		if data[1] in ['NN','NNP','NNPS',"NNS"]:
+		if data[1] in ['JJ','NN','NNP','NNPS',"NNS"]:
 			noun_list.append(data[0])
 	return noun_list
 
