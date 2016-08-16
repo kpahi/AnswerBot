@@ -2,6 +2,8 @@ from nltk import ne_chunk, pos_tag, word_tokenize
 from nltk.tree import Tree
 import nltk
 from function import *
+from operator import itemgetter
+
 def get_continuous_chunks(text):
     chunked = ne_chunk(pos_tag(word_tokenize(text)))
     #print(chunked)
@@ -74,5 +76,41 @@ def gethighcountner(nouns,wholist,all_con):
 
 
 
+def getcorrect(nouns, wholist, all_con):
+	temp_dict = {}	
+	sentences = nltk.sent_tokenize(all_con)
+#get one Name entity at a time
+	for person in wholist:
+		count = 0
+#tokenize it (may containg multiple words)
+		person = nltk.word_tokenize(person)
+		for p in person:
+#get all sentenences from the content of wiki
+			for sent in sentences:
+				words = nltk.word_tokenize(sent)
+#check if the Name Entity is the paritcular sentences
+				if p in words:
+					#print(person)
+#if the sentences contains the noun,adjec entity from the question
+					for n in nouns:
+						if n in words:
+						#	print(sent)
+							count +=1
+							print(sent)
+							continue
+						print(count)
+#increase the score of senctence
+						temp_dict[sent] = count
 
+
+
+	#print(temp_dict)
+#after sorting
+	temp_dict = sorted(temp_dict.items(), key=itemgetter(1))
+	print("After sorting")
+	#print(temp_dict)
+	print("The best sentence is ",temp_dict[-1])
+	
+
+				
 

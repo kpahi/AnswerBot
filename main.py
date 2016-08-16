@@ -73,8 +73,9 @@ if __name__ == '__main__':
 				if len(person) == 1:
 					print(start_output,verbused, ''.join(person))
 				else:
-					reqper = NER.gethighcountner(get_input_nouns, person,con)
-					print(start_output,verbused,reqper)
+					#reqper = NER.gethighcountner(get_input_nouns, person,con)
+					NER.getcorrect(get_input_nouns, person,con)
+					#print(start_output,verbused,reqper)
 			elif 'where' in input_tokens:
 				place = NER.getplacelist(nerlist)
 				print(place)
