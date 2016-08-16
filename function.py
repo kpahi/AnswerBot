@@ -1,7 +1,7 @@
 from wikisearch import *
 from scraping import *
 import generator
-
+from main import prn_dict
 import nltk
 
 def wiki_search(search_text):

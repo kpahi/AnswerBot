@@ -40,7 +40,6 @@ if __name__ == '__main__':
         # nerlist = getNER(wikilist)
 #tokenize input words
 		input_tokens = nltk.word_tokenize(inputstring)
-		#input_tokens = checkprn(inputstring)
 		wikiflag = False
 		wiki_tokens = ['what', 'who', 'where']
 #check if input tokens contains wh question
@@ -51,6 +50,12 @@ if __name__ == '__main__':
 		if wikiflag==False:
 			static_search(sInput)
 			continue
+
+		input_tokens = checkprn(nltk.pos_tag(input_tokens))
+		sInput = ' '.join(input_tokens)
+
+        #sInput = ' '.join(input_tokens)
+		print("After replacing PRN:", input_tokens)
 #wiki search true
 		if wikiflag:
 			#con contains all the contents from wiki search
@@ -75,14 +80,18 @@ if __name__ == '__main__':
 				else:
 					#reqper = NER.gethighcountner(get_input_nouns, person,con)
 					reqper=NER.getcorrect(get_input_nouns, person,con)
+					prn_dict['he'] = reqper[0]
+					prn_dict['she'] = reqper[0]
 					print(start_output,verbused,"".join(reqper))
+					print("here is the dictionary")
+					print(prn_dict)
 			elif 'where' in input_tokens:
 				place = NER.getplacelist(nerlist)
 				print(place)
 				if len(place) ==1:
 					print(start_output,"at","".join(place))
 				else:
-					reqplace = NER.gethighcountner(get_input_nouns,place)
+					reqplace = NER.gethighcountner(get_input_nouns,place,con)
 					print(start_output,"at",reqplace)
 
 				
