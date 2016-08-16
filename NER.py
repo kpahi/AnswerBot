@@ -67,10 +67,15 @@ def gethighcountner(nouns,wholist,all_con):
                 print(count)
         getdata = (person,count)
         getlist.append(getdata)
-        sorted(getlist,key= lambda x:x[1])
-        getinfo = getlist[0]
+
+    for get in getlist:
+        print(get)
+    getlist=sorted(getlist, key=lambda x: x[1],reverse = True)
+    for get in getlist:
+        print(get)
+    getinfo = getlist[0]
 #        print(getinfo[0])
-        return getinfo[0]
+    return getinfo[0]
 
 
 
