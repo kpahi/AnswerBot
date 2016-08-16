@@ -12,7 +12,6 @@ from function import *
 
 stopwords = ['what','why','when','how','a','is','an','the','are','was','were','am']
 
-import generator
 
 #static working
 from gen import *
@@ -31,22 +30,9 @@ if __name__ == '__main__':
 			if word in sInput.split():
 				sInput = sInput.replace(word, "")
 		print(sInput)
-		wiki_search(sInput)
-
-#search in the static keywords list
-#		search = generator.SelectResponse(sInput)
-#		response_list = search.top_ten_resp()
-#		print(response_list)
-
-
-#currently select the 1st keywords
-#		best = response_list[0][0]
-#		print("Selected key word: ", best)
-#Resonse of the 1st matched keywords
-#		best_resp = generator.give_resp(best)
-#		print(best_resp)
-
-
+#what to do specifies here:
+		#wiki_search(sInput)
+		static_search(sInput)
 
 		# alltokens = tokenization(sInput)
 		# print(alltokens)
@@ -55,6 +41,22 @@ if __name__ == '__main__':
 
 		# tokens = res.word_tokenize(sInput)
 		# nostop_words = res.remove_stopwords(tokens)
+
+def static_search(sInput):
+#search in the static keywords list
+	search = generator.SelectResponse(sInput)
+	response_list = search.top_ten_resp()
+	print(response_list)
+
+
+#currently select the 1st keywords
+	best = response_list[0][0]
+	print("Selected key word: ", best)
+#Resonse of the 1st matched keywords
+	best_resp = generator.give_resp(best)
+	print(best_resp)
+
+
 
 def wiki_search():
 #get the wiki link for corresponding nouns
