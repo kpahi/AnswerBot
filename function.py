@@ -46,3 +46,15 @@ def getlowerlist(inputlist):
 		outputlist.append(inputs.lower())
 	print(outputlist)
 	return outputlist
+#check if there is any pronoun
+def checkprn(t):
+	#make a list of the tupple t which is after pos_tag
+	l = list(t)
+	for i in range(0,len(t)):
+		if t[i][1] == 'PRP':
+			l[i] = prn_dict[t[i][0]]
+			continue
+		l[i] = t[i][0]
+		
+
+	return l

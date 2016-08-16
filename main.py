@@ -3,7 +3,7 @@ import random
 import nltk
 import NER
 sInput = " "
-
+prn_dict={}
 
 from tokeninput import *
 from response import resfunctions
@@ -40,6 +40,7 @@ if __name__ == '__main__':
         # nerlist = getNER(wikilist)
 #tokenize input words
 		input_tokens = nltk.word_tokenize(inputstring)
+		#input_tokens = checkprn(inputstring)
 		wikiflag = False
 		wiki_tokens = ['what', 'who', 'where']
 #check if input tokens contains wh question
