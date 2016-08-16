@@ -48,13 +48,18 @@ if __name__ == '__main__':
 			if tokens in wiki_tokens:
 				wikiflag = True
 				break
+		if wikiflag==False:
+			static_search(sInput)
+			continue
 #wiki search true
 		if wikiflag:
-			wiki_search(sInput)
+			#con contains all the contents from wiki search
+			con = wiki_search(sInput)
 			file = open('paragraph.txt', 'r')
 			fread = file.read()
-			sentences = nltk.sent_tokenize(fread)
+			#sentences = nltk.sent_tokenize(fread)
 #get ner list
+			sentences = nltk.sent_tokenize(con)	
 			nerlist = NER.getNER(sentences)
 			print(nerlist)
 			tagged_input = nltk.pos_tag(input_tokens)
@@ -68,7 +73,7 @@ if __name__ == '__main__':
 				if len(person) == 1:
 					print(start_output,verbused, ''.join(person))
 				else:
-					reqper = NER.gethighcountner(get_input_nouns, person)
+					reqper = NER.gethighcountner(get_input_nouns, person,con)
 					print(start_output,verbused,reqper)
 			elif 'where' in input_tokens:
 				place = NER.getplacelist(nerlist)
@@ -78,7 +83,11 @@ if __name__ == '__main__':
 				else:
 					reqplace = NER.gethighcountner(get_input_nouns,place)
 					print(start_output,"at",reqplace)
-		if count ==1:
-			break
+
+				
+
+				
+#		if count ==1:
+#			break
 
 

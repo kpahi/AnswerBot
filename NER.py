@@ -47,15 +47,15 @@ def getpersonlist(content):
             persons.append(data[1])
     return persons
 
-def gethighcountner(nouns,wholist):
+def gethighcountner(nouns,wholist,all_con):
     getlist =[]
     personlist=[]
     wordslist=[]
 
-    file = open('paragraph.txt','r')
-    fread = file.read()
-    sentences = nltk.sent_tokenize(fread)
-    # sentences = nltk.sent_tokenize(stringlist)
+    #file = open('paragraph.txt','r')
+    #fread = file.read()
+    #sentences = nltk.sent_tokenize(fread)
+    sentences = nltk.sent_tokenize(all_con)
     for person in wholist:
         count =0
         for sentence in sentences:
@@ -69,7 +69,7 @@ def gethighcountner(nouns,wholist):
         getlist.append(getdata)
         sorted(getlist,key= lambda x:x[1])
         getinfo = getlist[0]
-        print(getinfo[0])
+#        print(getinfo[0])
         return getinfo[0]
 
 

@@ -9,7 +9,9 @@ def wiki_search(search_text):
 	link = googleit(search_text)	
 	# content = regetdes(link)
 	content = getdes(link)
-	print(content)
+#	print(content)
+	
+	return content
 
 def static_search(sInput):
 #search in the static keywords list
@@ -26,8 +28,6 @@ def static_search(sInput):
 	print(best_resp)
 
 
-	return content
-	# print(content)
 
 def getnouns(content):
 	noun_list=[]

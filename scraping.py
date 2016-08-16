@@ -14,18 +14,29 @@ from bs4 import BeautifulSoup
 target = open('paragraph.txt','w')
 
 def getdes(l):
-    #print(l)
+    all = ''
     try:
         page = urllib.request.urlopen(l)
         soup = BeautifulSoup(page,"lxml")
-        all_paragraph = soup.find_all('p',limit = 55555)
+        all_paragraph = soup.find_all('p',limit = 5)
+        target.seek(0)
+        target.truncate()
+        target.seek(0)
+       # print(all_paragraph)
         for par in all_paragraph:
             paragraph = (par.getText()).encode('utf-8')
-            # print(paragraph)
-            target.write(str(paragraph))
-            target.write("\n")
+            #print(paragraph)
+            all += str(paragraph)
+            #target.write(str(paragraph))
+            #target.write("\n")
+        #print(all)
+        target.write(all)
+        print(all)
     except URLError as e:
         print('Reason ', e.reason)
+        print("Error wiriting file")
+
+    return all
 
 def regetdes(l):
     #print(l)
@@ -33,7 +44,7 @@ def regetdes(l):
     try:
         page = urllib.request.urlopen(l)
         soup = BeautifulSoup(page, "lxml")
-        all_paragraph = soup.find_all('p', limit=55555)
+        all_paragraph = soup.find_all('p', limit=5)
         for par in all_paragraph:
             paragraph = (par.getText()).encode('utf-8')
             print(paragraph)
@@ -43,6 +54,9 @@ def regetdes(l):
 
     except URLError as e:
         print('Reason ', e.reason)
+        print("Error wiriting file")
+
+
     return sentences_list
 
 
