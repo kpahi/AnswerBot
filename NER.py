@@ -104,12 +104,12 @@ def getcorrect(nouns, wholist, all_con):
 
 
 
-	#print(temp_dict)
-#after sorting
+	print(temp_dict)
+#after sorting this returns a list
 	temp_dict = sorted(temp_dict.items(), key=itemgetter(1))
 	print("After sorting")
-	#print(temp_dict)
-	print("The best sentence is ",temp_dict[-1])
+	print(temp_dict)
+	print("The best sentence is: ",temp_dict[-1])
 	
 
 				

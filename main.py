@@ -21,7 +21,6 @@ matched_keys = []
 res = resfunctions()
 if __name__ == '__main__':
 	while 1:
-		count =1
 		nerlist = []
 		print("> ", end='')
 		sInput = input().lower()
@@ -88,7 +87,5 @@ if __name__ == '__main__':
 				
 
 				
-#		if count ==1:
-#			break
 
 

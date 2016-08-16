@@ -18,7 +18,7 @@ def getdes(l):
     try:
         page = urllib.request.urlopen(l)
         soup = BeautifulSoup(page,"lxml")
-        all_paragraph = soup.find_all('p',limit = 5)
+        all_paragraph = soup.find_all('p',limit = 55)
         target.seek(0)
         target.truncate()
         target.seek(0)
