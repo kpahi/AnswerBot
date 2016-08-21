@@ -156,7 +156,7 @@ know={
     ],
     "DO YOU HAVE A NAME": [
         "OF COURSE I HAVE A NAME.",
-        "MY NAME IS CHATTERBOT15.",
+        "MY NAME IS AnswerBot.",
         "WHAT DO YOU MEAN?"
     ],
     "I GUESS": [
@@ -243,7 +243,7 @@ know={
         "MY FAVORITE TERMINATOR MOVIE SI TERMINATORR II."
     ],
     "ARE YOU A CHAT ROBOT": [
-        "YES YOU COULD ME BY THIS NAME."
+        "YES YOU COULD CALL ME BY THIS NAME."
     ],
     "YOU ARE NOT REAL": [
         "YOU MEAN THAT I DOESN'T EXIST.",

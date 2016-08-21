@@ -31,7 +31,7 @@ def getdes(l):
             #target.write("\n")
         #print(all)
         target.write(all)
-        print(all)
+        # print(all)
     except URLError as e:
         print('Reason ', e.reason)
         print("Error wiriting file")

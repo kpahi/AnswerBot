@@ -2,6 +2,7 @@ import sys
 import random
 import nltk
 import NER
+from ngrammarkov import *
 sInput = " "
 prn_dict={}
 
@@ -21,8 +22,14 @@ matched_keys = []
 res = resfunctions()
 if __name__ == '__main__':
 	while 1:
+		markov = True
+		if markov:
+			response = markovresponse()
+			sentence = " ".join(response)
+			print("AnswerBot>>",sentence)
+
 		nerlist = []
-		print("> ", end='')
+		print("YOU>> ", end='')
 		sInput = input().lower()
 # sInput = "who is the president of america"
 
@@ -55,18 +62,18 @@ if __name__ == '__main__':
 		sInput = ' '.join(input_tokens)
 
         #sInput = ' '.join(input_tokens)
-		print("After replacing PRN:", input_tokens)
+		# print("After replacing PRN:", input_tokens)
 #wiki search true
 		if wikiflag:
 			#con contains all the contents from wiki search
 			con = wiki_search(sInput)
-			file = open('paragraph.txt', 'r')
-			fread = file.read()
+			# file = open('paragraph.txt', 'r')
+			# fread = file.read()
 			#sentences = nltk.sent_tokenize(fread)
 #get ner list
 			sentences = nltk.sent_tokenize(con)	
 			nerlist = NER.getNER(sentences)
-			print(nerlist)
+			# print(nerlist)
 			tagged_input = nltk.pos_tag(input_tokens)
 			get_input_nouns = getnouns(tagged_input)
 			start_output = " ".join(input_tokens[2:])
@@ -74,7 +81,7 @@ if __name__ == '__main__':
 #for who  questions
 			if 'who' in input_tokens:
 				person = NER.getpersonlist(nerlist)
-				print(person)
+				# print(person)
 				if len(person) == 1:
 					print(start_output,verbused, ''.join(person))
 				else:
@@ -83,18 +90,20 @@ if __name__ == '__main__':
 					prn_dict['he'] = reqper[0]
 					prn_dict['she'] = reqper[0]
 					print(start_output,verbused,"".join(reqper))
-					print("here is the dictionary")
-					print(prn_dict)
+					# print("here is the dictionary")
+					# print(prn_dict)
 			elif 'where' in input_tokens:
 				place = NER.getplacelist(nerlist)
-				print(place)
+				verbused = input_tokens[1]
+
+				# print(place)
 				if len(place) ==1:
 					print(start_output,"at","".join(place))
 				else:
 					reqplace = NER.gethighcountner(get_input_nouns,place,con)
-					print(start_output,"at",reqplace)
+					print(start_output,verbused,"at",reqplace)
 
-				
+
 
 				
 

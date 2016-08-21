@@ -17,15 +17,15 @@ def static_search(sInput):
 #search in the static keywords list
 	search = generator.SelectResponse(sInput)
 	response_list = search.top_ten_resp()
-	print(response_list)
+	# print(response_list)
 
 
 #currently select the 1st keywords
 	best = response_list[0][0]
-	print("Selected key word: ", best)
+	# print("Selected key word: ", best)
 #Resonse of the 1st matched keywords
 	best_resp = generator.give_resp(best)
-	print(best_resp)
+	print("AnswerBot>>",best_resp)
 
 
 
@@ -44,7 +44,7 @@ def getlowerlist(inputlist):
 	outputlist=[]
 	for inputs in inputlist:
 		outputlist.append(inputs.lower())
-	print(outputlist)
+	# print(outputlist)
 	return outputlist
 #check if there is any pronoun
 def checkprn(t):

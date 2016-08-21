@@ -24,7 +24,7 @@ class SelectResponse(object):
 		self.inputs = inps
 		#tokenize the inputs
 		self.inputs = tokenize(self.inputs)
-		print(self.inputs)
+		# print(self.inputs)
 		
 #get all the keys
 	def get_all_keys(self):
@@ -58,7 +58,7 @@ class SelectResponse(object):
 		dictionary = self.find_weight()
 		self.temp_list = sorted(dictionary.items(), key=itemgetter(1))
 		self.ten_resp = []
-		print("Best 10 matched keywords are:\n")
+		# print("Best 4 matched keywords are:\n")
 		for i in range(1,5):
 			self.ten_resp.append(self.temp_list[-i])
 		del dictionary

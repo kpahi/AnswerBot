@@ -7,7 +7,7 @@ from bs4 import BeautifulSoup
 
 def getlink(n):
 	mypage = wikipedia.page(str(n))
-	print(mypage.url)
+	# print(mypage.url)
 	return mypage.url
 
 #google search here
@@ -20,7 +20,7 @@ def googleit(research):
 	soup = BeautifulSoup(r.text, "html.parser")
 
 	wiki_link = soup.find('cite').text
-	print(wiki_link)
+	# print(wiki_link)
 
 	return wiki_link
 

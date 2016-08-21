@@ -66,15 +66,15 @@ def gethighcountner(nouns,wholist,all_con):
             persons = getlowerlist(nltk.word_tokenize(person))
             if set(persons) < set(lower_words) and set(nouns) <set(lower_words):
                 count += 1
-                print(count)
+                # print(count)
         getdata = (person,count)
         getlist.append(getdata)
 
-    for get in getlist:
-        print(get)
+    # for get in getlist:
+        # print(get)
     getlist=sorted(getlist, key=lambda x: x[1],reverse = True)
-    for get in getlist:
-        print(get)
+    # for get in getlist:
+        # print(get)
     getinfo = getlist[0]
 #        print(getinfo[0])
     return getinfo[0]
@@ -101,20 +101,20 @@ def getcorrect(nouns, wholist, all_con):
                         if n in words:
                         #	print(sent)
                             count +=1
-                            print(sent)
+                            # print(sent)
                             continue
-                        print(count)
+                        # print(count)
 #increase the score of senctence
                         temp_dict[sent] = count
 
 
 
-    print(temp_dict)
+    # print(temp_dict)
 #after sorting this returns a list
     temp_dict = sorted(temp_dict.items(), key=itemgetter(1))
-    print("After sorting")
-    print(temp_dict)
-    print("The best sentence is: ",temp_dict[-1])
+    # print("After sorting")
+    # print(temp_dict)
+    # print("The best sentence is: ",temp_dict[-1])
     content = temp_dict[-1]
     person = getpersonlist(getNER(content))
     return person
